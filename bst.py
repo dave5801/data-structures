@@ -50,14 +50,13 @@ class Tree(object):
                     break
 
     def search(self, val):
-        
+        """Search for value in BST"""
         if self.root is None:
             return
 
         current = self.root
 
         while current:
-
             if val < current.data:
                 if current.left:
                     current = current.left
