@@ -98,17 +98,17 @@ class Tree(object):
 if __name__ == '__main__':
     t = Tree()
     t.insert(5)
-    t.insert(2)
-    t.insert(3)
-    t.insert(1)
-    t.insert(7)
-    t.insert(10)
-    t.insert(20)
-    t.insert(30)
+    #t.insert(2)
+    #t.insert(3)
+    #t.insert(1)
+    #t.insert(7)
+    #t.insert(10)
+    #t.insert(20)
+    #t.insert(30)
 
-    print(t.root.data)
-    print(t.nodes)
-    print(t.size())
-    #print(t.get_depth(t.root))
+    #print(t.root.data)
+    #print(t.nodes)
+    #print(t.size())
+    print(t.get_depth(t.root))
 
     

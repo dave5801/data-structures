@@ -73,8 +73,30 @@ def test_search_mulitple_nodes():
 
 
 def test_get_depth_no_nodes():
+    """Test no nodes has depth 0"""
     from bst import Tree
     test_tree = Tree()
     assert test_tree.get_depth() == 0
-    '''
-    '''
+
+
+def test_get_depth_one_node():
+    """Test one node has depth of one"""
+    from bst import Tree
+    test_tree = Tree()
+    test_tree.insert(5)
+    assert test_tree.get_depth(test_tree.root) == 1
+
+def get_depth_small_tree():
+    """Test multiple nodes has depth of 3."""
+    from bst import Tree
+    test_tree = Tree()
+    test_tree.insert(5)
+    test_tree.insert(2)
+    test_tree.insert(3)
+    test_tree.insert(1)
+    test_tree.insert(7)
+
+    assert test_tree.get_depth(test_tree.root) == 3
+
+
+
