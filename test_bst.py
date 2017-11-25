@@ -1,4 +1,4 @@
-"""Class for testing BST"""
+"""Class for testing BST."""
 import random
 
 
@@ -26,7 +26,7 @@ def test_create_tree_none_root():
     """Test create an empty tree."""
     from bst import Tree
     test_tree = Tree()
-    assert test_tree.size == 0
+    assert test_tree.size() == 0
 
 
 def test_insert_one_node_return_size_one():
@@ -34,7 +34,7 @@ def test_insert_one_node_return_size_one():
     from bst import Tree
     test_tree = Tree()
     test_tree.insert(1)
-    assert test_tree.size == 1
+    assert test_tree.size() == 1
 
 
 def test_insert_mulitple_nodes_return_correct_size():
@@ -45,7 +45,7 @@ def test_insert_mulitple_nodes_return_correct_size():
     for i in test_values:
         test_tree.insert(i)
 
-    assert test_tree.size == len(test_values)
+    assert test_tree.size() == len(test_values)
 
 
 def test_search_one_node():
@@ -57,7 +57,8 @@ def test_search_one_node():
     for i in test_node_list:
         test_tree.insert(i)
 
-    assert test_tree.search(test_node_list[2]) == 3
+    assert test_tree.search(test_node_list[2]).data == 3
+
 
 def test_search_mulitple_nodes():
     """Test multiple node searches."""
@@ -68,4 +69,12 @@ def test_search_mulitple_nodes():
         test_tree.insert(i)
 
     for j in test_values:
-        assert test_tree.search(j) == j
+        assert test_tree.search(j).data == j
+
+
+def test_get_depth_no_nodes():
+    from bst import Tree
+    test_tree = Tree()
+    assert test_tree.get_depth() == 0
+    '''
+    '''

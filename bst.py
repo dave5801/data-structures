@@ -21,13 +21,17 @@ class Tree(object):
 
     def size(self):
         """Return size of Tree."""
-        return self.size
+        if not self.nodes:
+            return 0
+        else:
+            return len(self.nodes)
 
     def insert(self, val):
         """Insert New Node."""
 
         if self.root is None:
             self.root = TreeNode(val)
+            self.nodes.append(val)
             return
 
         current = self.root
@@ -102,6 +106,9 @@ if __name__ == '__main__':
     t.insert(20)
     t.insert(30)
 
-    #print(t.search(5).data)
-    print(t.get_depth(t.root))
+    print(t.root.data)
+    print(t.nodes)
+    print(t.size())
+    #print(t.get_depth(t.root))
+
     
