@@ -11,6 +11,14 @@ def test_node_exists_no_args():
 
     assert test_node
 
+def test_if_iterable_is_inserted():
+    from bst import Tree
+    test_iter = [5,3,7]
+    test_node = Tree(test_iter)
+    assert test_node.root.data == test_iter[0]
+    assert test_node.root.left.data == test_iter[1]
+    assert test_node.root.right.data == test_iter[2]
+
 
 def test_node_exists_args():
     """Test Create a Tree Node."""
@@ -85,6 +93,7 @@ def test_get_depth_one_node():
     test_tree = Tree()
     test_tree.insert(5)
     assert test_tree.get_depth(test_tree.root) == 1
+
 
 def get_depth_small_tree():
     """Test multiple nodes has depth of 3."""

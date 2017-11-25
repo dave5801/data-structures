@@ -1,5 +1,6 @@
 """Class for Binary Search Tree."""
 
+import collections
 
 class TreeNode(object):
     """Class for For Node of Tree."""
@@ -14,10 +15,14 @@ class TreeNode(object):
 class Tree(object):
     """Tree Class."""
 
-    def __init__(self):
+    def __init__(self, iterable=None):
         """Constructor."""
         self.root = None
         self.nodes = []
+
+        if isinstance(iterable, collections.Iterable):
+            for i in iterable:
+                self.insert(i)
 
     def size(self):
         """Return size of Tree."""
@@ -96,8 +101,8 @@ class Tree(object):
 
 
 if __name__ == '__main__':
-    t = Tree()
-    t.insert(5)
+    t = Tree([5,6, 7])
+    #t.insert(5)
     #t.insert(2)
     #t.insert(3)
     #t.insert(1)
@@ -106,9 +111,9 @@ if __name__ == '__main__':
     #t.insert(20)
     #t.insert(30)
 
-    #print(t.root.data)
+    print(t.root.right.right.data)
     #print(t.nodes)
-    #print(t.size())
-    print(t.get_depth(t.root))
+   # print(t.size())
+   # print(t.get_depth(t.root))
 
     
