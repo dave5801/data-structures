@@ -151,7 +151,8 @@ def test_in_order_one():
     for i in path:
         assert i.data == test_list[count]
         count += 1
-        
+
+
 def test_in_order_multiple_nodes():
     """Test sort multiple nodes."""
     from bst import Tree
@@ -165,6 +166,24 @@ def test_in_order_multiple_nodes():
     for i in path:
         assert i.data == test_results[count]
         count += 1
+
+
+def test_pre_order_multiple_nodes():
+    """Test preorder on larger tree."""
+    from bst import Tree
+    test_list = [10, 7, 12, 5, 9, 11, 13, 4]
+    test_tree = Tree(test_list)
+
+    test_results = [10, 7, 5, 4, 9, 12, 11, 13]
+
+    path = test_tree.pre_order(test_tree.root)
+
+    count = 0
+
+    for i in path:
+        assert i.data == test_results[count]
+        count += 1
+
 
 
 

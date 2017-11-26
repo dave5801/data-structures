@@ -141,16 +141,29 @@ class Tree(object):
             for i in self.in_order(node.right):
                 yield i
 
-    #def pre_order(self):
+    def pre_order(self, node=None):
+        """Search in descending order."""
+        if node is None:
+            return
+
+        yield node
+
+        if node.left:
+            for i in self.pre_order(node.left):
+                yield i
+        if node.right:
+            for i in self.pre_order(node.right):
+                yield i
 
     #def post_order(self):
 
     #def breadth_first(self):
 
 if __name__ == '__main__':
-    t = Tree([5,2,6,1,4])
+    #t = Tree([5,2,6,1,4])
+    t = Tree([10,7,12,5,9,11,13,4])
    
-    x = t.in_order(t.root)
+    x = t.pre_order(t.root)
    
     for i in x:
         print(i.data)
