@@ -125,7 +125,7 @@ class Tree(object):
         elif node.right and not node.left:
             return self.get_depth(node.right) + 1
         else:
-            return max(self.get_depth(node.left), self.get_depth(node.right))+1
+            return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
 
 
 if __name__ == '__main__':
