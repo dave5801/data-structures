@@ -2,6 +2,7 @@
 
 import collections
 
+
 class TreeNode(object):
     """Class for For Node of Tree."""
 
@@ -32,7 +33,7 @@ class Tree(object):
             return len(self.nodes)
 
     def contains(self, val):
-        """Search for value in BST"""
+        """Search for value in BST."""
         if val in self.nodes:
             return True
         else:
@@ -40,9 +41,8 @@ class Tree(object):
 
     def insert(self, val):
         """Insert New Node."""
-
-        """Ignore if already present."""
         if self.contains(val) == True:
+            """Ignore if already present."""
             return
 
         if self.root is None:
@@ -68,10 +68,8 @@ class Tree(object):
                     self.nodes.append(val)
                     break
 
-
     def search(self, val):
         """Search method."""
-
         if self.root is None:
             return
 
@@ -91,7 +89,6 @@ class Tree(object):
 
     def balanced(self):
         """Check Balance of Tree."""
-
         if self.size() <= 1:
             return 0
 
@@ -113,10 +110,8 @@ class Tree(object):
         else:
             return -1
 
-
     def get_depth(self, node=None):
-        """Get depth of tree"""
-
+        """Get depth of tree."""
         if node is None:
             return 0
 
@@ -127,24 +122,69 @@ class Tree(object):
         else:
             return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
 
+    def in_order(self, node=None):
+        """Search in ascending order."""
+        if node is None:
+            return
+        if node.left:
+            for i in self.in_order(node.left):
+                yield i
+        yield node
+        if node.right:
+            for i in self.in_order(node.right):
+                yield i
+
+    def pre_order(self, node=None):
+        """Search in descending order."""
+        if node is None:
+            return
+
+        yield node
+
+        if node.left:
+            for i in self.pre_order(node.left):
+                yield i
+        if node.right:
+            for i in self.pre_order(node.right):
+                yield i
+
+    def post_order(self, node=None):
+        """Search lowest children first."""
+        if node is None:
+            return
+
+        if node.left:
+            for i in self.pre_order(node.left):
+                yield i
+        if node.right:
+            for i in self.pre_order(node.right):
+                yield i
+
+        yield node
+
+    def breadth_first(self):
+        """Search by breadth first."""
+        s = [self.root]
+
+        res = []
+
+        while s:
+            if s[0].left:
+                s.append(s[0].left)
+
+            if s[0].right:
+                s.append(s[0].right)
+
+            res.append(s.pop(0).data)
+
+        yield res
+
 
 if __name__ == '__main__':
-    t = Tree([5])
-   
-    
-    print(t.get_depth(t.root))
-    print(t.balanced())
 
-    #t.insert(2)
-    #t.insert(3)
-    #t.insert(1)
-    #t.insert(7)
-    #t.insert(10)
-    #t.insert(20)
-    #t.insert(30)
+    t = Tree([10, 7, 12, 5, 9, 11, 13])
 
-    #print(t.nodes)
-   # print(t.size())
-   # print(t.get_depth(t.root))
+    x = t.breadth_first()
 
-    
+    for i in x:
+        print(i)

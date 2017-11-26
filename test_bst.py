@@ -8,6 +8,7 @@ def test_node_exists_no_args(tree_node):
 
 
 def test_if_iterable_is_inserted(bst):
+    """Test for iterables."""
     from bst import Tree
     test_iter = [5, 3, 7]
     test_node = Tree(test_iter)
@@ -18,7 +19,6 @@ def test_if_iterable_is_inserted(bst):
 
 def test_node_exists_args():
     """Test Create a Tree Node."""
-
     from bst import TreeNode
 
     test_node = TreeNode(1, 2, 3)
@@ -77,14 +77,14 @@ def test_search_mulitple_nodes():
 
 
 def test_get_depth_no_nodes():
-    """Test no nodes has depth 0"""
+    """Test no nodes has depth 0."""
     from bst import Tree
     test_tree = Tree()
     assert test_tree.get_depth() == 0
 
 
 def test_get_depth_one_node():
-    """Test one node has depth of one"""
+    """Test one node has depth of one."""
     from bst import Tree
     test_tree = Tree()
     test_tree.insert(5)
@@ -126,7 +126,7 @@ def test_right_heavy_balanced_right():
 
 
 def test_left_heavy_balanced_left():
-    """Test tree is left heavy"""
+    """Test tree is left heavy."""
     from bst import Tree
     test_tree = Tree([5, 4, 3, 2])
     assert test_tree.balanced() == 1
@@ -137,3 +137,78 @@ def test_larger_balanced_tree():
     from bst import Tree
     test_tree = Tree([10, 5, 15, 4, 6, 11, 16])
     assert test_tree.balanced() == 0
+
+
+def test_in_order_one():
+    """Test sort one node."""
+    from bst import Tree
+    test_list = [10]
+
+    test_tree = Tree(test_list)
+    path = test_tree.in_order(test_tree.root)
+
+    count = 0
+    for i in path:
+        assert i.data == test_list[count]
+        count += 1
+
+
+def test_in_order_multiple_nodes():
+    """Test sort multiple nodes."""
+    from bst import Tree
+    test_list = [5, 2, 6, 1, 4]
+    test_tree = Tree(test_list)
+    path = test_tree.in_order(test_tree.root)
+
+    test_results = [1, 2, 4, 5, 6]
+
+    count = 0
+    for i in path:
+        assert i.data == test_results[count]
+        count += 1
+
+
+def test_pre_order_multiple_nodes():
+    """Test preorder on larger tree."""
+    from bst import Tree
+    test_list = [10, 7, 12, 5, 9, 11, 13, 4]
+    test_tree = Tree(test_list)
+
+    test_results = [10, 7, 5, 4, 9, 12, 11, 13]
+
+    path = test_tree.pre_order(test_tree.root)
+
+    count = 0
+
+    for i in path:
+        assert i.data == test_results[count]
+        count += 1
+
+
+def test_post_order_multiple_nodes():
+    """Test postorder on larger tree."""
+    from bst import Tree
+    test_list = [10, 7, 12, 5, 9, 11, 13, 4]
+    test_tree = Tree(test_list)
+
+    test_results = [7, 5, 4, 9, 12, 11, 13, 10]
+
+    path = test_tree.post_order(test_tree.root)
+
+    count = 0
+
+    for i in path:
+        assert i.data == test_results[count]
+        count += 1
+
+
+def test_breadth_first_traversal():
+    """Test breadth_first traversal."""
+    from bst import Tree
+    test_list = [10, 7, 5, 9, 12, 11, 13]
+    test_tree = Tree(test_list)
+
+    x = test_tree.breadth_first()
+
+    for i in x:
+        assert i == [10, 7, 12, 5, 9, 11, 13]

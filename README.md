@@ -16,3 +16,11 @@
     # contains - returns true if node is in list
 
     # balance - return -1 if the tree is right heavy, 1 if it is left heavy, and 0 if the tree is balanced.
+
+    # in_order : recursively sort in ascending order, O(n)
+
+    # pre_order : recursively sort in descending order, O(n)
+
+    # post_order: sort by subtrees recursively back up to root, O(n)
+
+    # breadth first: also known as level order, search by left and right nodes in descending order, O(n)
