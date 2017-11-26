@@ -128,7 +128,8 @@ class Tree(object):
             return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
 
 
-    def in_order(self, node):
+    def in_order(self, node=None):
+        """Search in ascending order."""
 
         if node is None:
             return

@@ -137,3 +137,22 @@ def test_larger_balanced_tree():
     from bst import Tree
     test_tree = Tree([10, 5, 15, 4, 6, 11, 16])
     assert test_tree.balanced() == 0
+
+
+def test_in_order_one():
+    from bst import Tree
+    test_list = [10]
+
+    test_tree = Tree(test_list)
+    path = test_tree.in_order(test_tree.root)
+
+    count = 0
+    for i in path:
+        assert i.data == test_list[count]
+        count += 1
+        
+
+
+
+
+

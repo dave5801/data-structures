@@ -16,3 +16,5 @@
     # contains - returns true if node is in list
 
     # balance - return -1 if the tree is right heavy, 1 if it is left heavy, and 0 if the tree is balanced.
+
+    # in_order : recursively sort in ascending order
