@@ -70,7 +70,8 @@ class Tree(object):
 
 
     def search(self, val):
-     
+        """Search method."""
+
         if self.root is None:
             return
 
@@ -93,13 +94,12 @@ class Tree(object):
 
         if self.size() <= 1:
             return 0
-        
-        """Return 1, if balance is left."""
-        if self.root.left and not self.root.right:
-            return 1
 
-        """Return -1, if balance is right."""
+        if self.root.left and not self.root.right:
+            """Return 1, if balance is left."""
+            return 1
         elif self.root.right and not self.root.left:
+            """Return -1, if balance is right."""
             return -1
 
         lh = self.get_depth(self.root.left)
@@ -122,7 +122,6 @@ class Tree(object):
 
         if node.left and not node.right:
             return self.get_depth(node.left) + 1
-
         elif node.right and not node.left:
             return self.get_depth(node.right) + 1
         else:
