@@ -128,12 +128,32 @@ class Tree(object):
             return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
 
 
+    def in_order(self, node):
+
+        if node is None:
+            return
+        if node.left:
+            for i in self.in_order(node.left):
+                yield i
+        yield node
+        if node.right:
+            for i in self.in_order(node.right):
+                yield i
+
+    #def pre_order(self):
+
+    #def post_order(self):
+
+    #def breadth_first(self):
+
 if __name__ == '__main__':
-    t = Tree([5])
+    t = Tree([5,2,6,1,4])
    
-    
-    print(t.get_depth(t.root))
-    print(t.balanced())
+    x = t.in_order(t.root)
+   
+    for i in x:
+        print(i.data)
+        
 
     #t.insert(2)
     #t.insert(3)
