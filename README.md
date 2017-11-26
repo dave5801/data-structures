@@ -20,3 +20,5 @@
     # in_order : recursively sort in ascending order
 
     # pre_order : recursively sort in descending order
+
+    # post_order: sort by subtrees recursively back up to root
