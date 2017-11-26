@@ -140,6 +140,7 @@ def test_larger_balanced_tree():
 
 
 def test_in_order_one():
+    """Test sort one node."""
     from bst import Tree
     test_list = [10]
 
@@ -151,7 +152,19 @@ def test_in_order_one():
         assert i.data == test_list[count]
         count += 1
         
+def test_in_order_multiple_nodes():
+    """Test sort multiple nodes."""
+    from bst import Tree
+    test_list = [5, 2, 6, 1, 4]
+    test_tree = Tree(test_list)
+    path = test_tree.in_order(test_tree.root)
 
+    test_results = [1, 2, 4, 5, 6]
+
+    count = 0
+    for i in path:
+        assert i.data == test_results[count]
+        count += 1
 
 
 

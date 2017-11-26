@@ -18,3 +18,5 @@
     # balance - return -1 if the tree is right heavy, 1 if it is left heavy, and 0 if the tree is balanced.
 
     # in_order : recursively sort in ascending order
+
+    # pre_order : recursively sort in descending order
