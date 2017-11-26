@@ -31,8 +31,19 @@ class Tree(object):
         else:
             return len(self.nodes)
 
+    def contains(self, val):
+        """Search for value in BST"""
+        if val in self.nodes:
+            return True
+        else:
+            return False
+
     def insert(self, val):
         """Insert New Node."""
+
+        """Ignore if already present."""
+        if self.contains(val) == True:
+            return
 
         if self.root is None:
             self.root = TreeNode(val)
@@ -56,14 +67,7 @@ class Tree(object):
                     current.right = TreeNode(val)
                     self.nodes.append(val)
                     break
-                '''
-                '''
-    def contains(self, val):
-        """Search for value in BST"""
-        if val in self.nodes:
-            return True
-        else:
-            return False
+
 
     def search(self, val):
      
@@ -83,7 +87,32 @@ class Tree(object):
                 current = current.right
 
         return None
+
+    def balanced(self):
+        """Check Balance of Tree."""
+
+        if self.size() <= 1:
+            return 0
         
+        """Return 1, if balance is left."""
+        if self.root.left and not self.root.right:
+            return 1
+
+        """Return -1, if balance is right."""
+        elif self.root.right and not self.root.left:
+            return -1
+
+        lh = self.get_depth(self.root.left)
+        rh = self.get_depth(self.root.right)
+
+        """Return 0 if balance."""
+        if lh == rh:
+            return 0
+        elif lh > rh:
+            return 1
+        else:
+            return -1
+
 
     def get_depth(self, node=None):
         """Get depth of tree"""
@@ -91,18 +120,22 @@ class Tree(object):
         if node is None:
             return 0
 
-        ld = self.get_depth(node.left)
-        rd = self.get_depth(node.right)
+        if node.left and not node.right:
+            return self.get_depth(node.left) + 1
 
-        if node.left and node.left.data > node.right.data:
-            return ld + 1
+        elif node.right and not node.left:
+            return self.get_depth(node.right) + 1
         else:
-            return rd + 1
+            return max(self.get_depth(node.left), self.get_depth(node.right))+1
 
 
 if __name__ == '__main__':
-    t = Tree([5,6, 7])
-    #t.insert(5)
+    t = Tree([5])
+   
+    
+    print(t.get_depth(t.root))
+    print(t.balanced())
+
     #t.insert(2)
     #t.insert(3)
     #t.insert(1)
@@ -111,7 +144,6 @@ if __name__ == '__main__':
     #t.insert(20)
     #t.insert(30)
 
-    print(t.root.right.right.data)
     #print(t.nodes)
    # print(t.size())
    # print(t.get_depth(t.root))
