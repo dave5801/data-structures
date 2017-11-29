@@ -179,12 +179,30 @@ class Tree(object):
 
         yield res
 
+    def delete_node(self, node):
+        """delete node from tree."""
+        if self.root is None:
+            return
+        elif node == self.root:
+            self.root = self.get_min_node(self.root)
+     
+
+    def get_min_node(self, node):
+        """get min node from sub tree."""
+        if node.left:
+            return node.left
+        else:
+            return node.right
 
 if __name__ == '__main__':
 
-    t = Tree([10, 7, 12, 5, 9, 11, 13])
+    #t = Tree([10, 7, 12, 5, 9, 11, 13])
+    t = Tree([5,3,6])
+    
+    
 
-    x = t.breadth_first()
+    t.delete_node(t.root)
+    print(t.root.data)
 
-    for i in x:
-        print(i)
+
+
