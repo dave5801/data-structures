@@ -181,18 +181,22 @@ class Tree(object):
 
     def delete_node(self, node):
         """delete node from tree."""
-        print("check for none types", node.data)
         if self.root is None:
             return
+        elif node == self.root:
+            self.root = self.get_min_node(node)
 
+        '''
+             
         if node.data < self.root.data:
             print("Traverse here",self.root.left.data)
             self.root.left = self.delete_node(self.root)
+           
         elif node.data > self.root.data:
             print("Traverse here",self.root.right.data)
+       '''
 
-        elif node == self.root:
-            self.root = self.get_min_node(self.root)
+        
      
 
     def get_min_node(self, node):
@@ -204,14 +208,18 @@ class Tree(object):
 
 if __name__ == '__main__':
 
-    #t = Tree([10, 7, 12, 5, 9, 11, 13])
-    t = Tree([5,3,1,6])
+    t = Tree([10, 7, 12, 5, 9, 11, 13])
+   # t = Tree([5,3,1,6])
     
-    print(t.root.left.data)
-    #print(t.root.left.left.data)
-    t.delete_node(t.root.left)
+
     print(t.root.data)
-    print(t.root.left.data)
+   # print(t.root.left.data)
+    t.delete_node(t.root)
+    print(t.root.data)
+    #print(t.root.left.left.data)
+    #t.delete_node(t.root.left)
+    #print(t.root.data)
+    #print(t.root.left.data)
 
 
 
