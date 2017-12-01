@@ -212,3 +212,23 @@ def test_breadth_first_traversal():
 
     for i in x:
         assert i == [10, 7, 12, 5, 9, 11, 13]
+
+
+def test_delete_node_returns_empty_node():
+    """Test empty node removed is None."""
+    from bst import Tree
+    test_list = []
+    test_tree = Tree(test_list)
+    test_tree.delete_node(test_tree.root)
+
+    assert test_tree.root is None
+
+
+def test_deletion_removes_root():
+    """Test delete removes node as expected."""
+    from bst import Tree
+    test_list = [10, 7, 5, 9, 12, 11, 13]
+    test_tree = Tree(test_list)
+
+    test_tree.delete_node(test_tree.root)
+    assert test_tree.root.data == test_list[1]
