@@ -184,6 +184,12 @@ class Tree(object):
         if self.root is None:
             return
         elif node == self.root:
+
+            if self.root.right is None:
+                print("trying to get left child")
+                self.root = self.root.left
+                self.left = None
+
             self.root = self.get_min_node(node)
 
         '''
@@ -208,18 +214,16 @@ class Tree(object):
 
 if __name__ == '__main__':
 
-    t = Tree([10, 7, 12, 5, 9, 11, 13])
+   # t = Tree([10, 7, 12, 5, 9, 11, 13])
    # t = Tree([5,3,1,6])
-    
+    t = Tree([5,3])
 
     print(t.root.data)
-   # print(t.root.left.data)
+    print(t.root.right)
     t.delete_node(t.root)
     print(t.root.data)
-    #print(t.root.left.left.data)
-    #t.delete_node(t.root.left)
-    #print(t.root.data)
-    #print(t.root.left.data)
+    print(t.root.left)
+
 
 
 
