@@ -1,19 +1,8 @@
-/*
-class Node{
-    constructor(data, next){
-        this.data = data;
-        this.next = next;
-    }
-    foo(){
-        console.log("foo-bar")
-    }
-}
-
-
-n = new Node()
-n.foo()*/
+/*Singly linked List implementation in Javascript*/
 
 class Node{
+    //node class
+
     constructor(data, next){
         this.data = data;
         this.next = next;
@@ -21,6 +10,8 @@ class Node{
 }
 
 class SinglyLinkedList{
+    //linked list class
+
     constructor(head){
         this.head = null;
         this.size = 0;
@@ -83,7 +74,12 @@ class SinglyLinkedList{
 
     }
 
-    remove(node){}
+    remove(node){
+        //remove a node from the list
+        
+        node.data = node.next.data;
+        node.next = node.next.next;
+    }
 
     display(){
         //display contents of linked list
@@ -112,5 +108,10 @@ l.push(3);
 l.push(2);
 l.push(1);
 
-x = l.search(8);
-console.log(x);
+l.remove(l.head)
+console.log("the head: " +l.head.data)
+l.remove(l.head)
+console.log("the head: " +l.head.data)
+l.remove(l.head)
+console.log("the head: " +l.head.data)
+
