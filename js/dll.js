@@ -34,7 +34,7 @@ class DLL{
             this.head.prev = new_node;
             new_node.next = this.head;
             this.head = new_node;
-            
+            this.size += 1; 
         }
     }
     append(val){
@@ -50,12 +50,11 @@ class DLL{
             this.tail.next = new_node;
             new_node.prev = this.tail;
             this.tail = new_node;
-            
+            this.size += 1;   
         }
-
-
     }
     pop(){
+        //returns and removes head of list.
         try{
             var popped = this.head;
             this.head = this.head.next;
@@ -65,19 +64,27 @@ class DLL{
             console.log("Empty List");
         }
     }
-    shift(){}
+
+    shift(){
+        try{
+            var shifted = this.tail;
+            this.tail = this.tail.prev;
+            this.size -= 1;
+            return shifted;
+        }catch(err){
+            console.log("Empty List");
+        }
+    }
     remove(val){}
 }
 
 dll = new DLL();
-var x = dll.pop()
-console.log(x);
-/*dll.push(10)
+
+dll.push(10)
 dll.push(5)
 dll.append(3)
-console.log(dll.head.data)
-var x = dll.pop();
-console.log(x.data);
-console.log(dll.head.data);*/
-//console.log(dll.len())
+
+var x = dll.shift()
+console.log("shifted:" +x.data);
+console.log("size: " +dll.len())
 
