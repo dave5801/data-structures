@@ -29,16 +29,16 @@
 
 # Javascript
 
-# Singly Linked List
+    # Singly Linked List
 
-# push() - add new node to list, O(1)
+    # push() - add new node to list, O(1)
 
-# pop() - remove head of list, O(1)
+    # pop() - remove head of list, O(1)
 
-# get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
+    # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
 
-# search() - returns node which matches target value, O(n), must search through list elements.
+    # search() - returns node which matches target value, O(n), must search through list elements.
 
-# remove() - remove target node, O(n) must search through list elements to find target.
+# remove() - remove target node; resetting pointers, O(1) 
 
 # display() - display list contents O(n), prints list contents in linear fashion.
