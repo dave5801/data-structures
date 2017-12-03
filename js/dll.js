@@ -55,18 +55,29 @@ class DLL{
 
 
     }
-    pop(){}
+    pop(){
+        try{
+            var popped = this.head;
+            this.head = this.head.next;
+            this.size -= 1;
+            return popped;
+        }catch(err){
+            console.log("Empty List");
+        }
+    }
     shift(){}
     remove(val){}
 }
 
 dll = new DLL();
-dll.push(10)
+var x = dll.pop()
+console.log(x);
+/*dll.push(10)
 dll.push(5)
 dll.append(3)
 console.log(dll.head.data)
-//console.log(dll.head.next.data)
-console.log(dll.tail.data)
-console.log(dll.tail.prev.data)
+var x = dll.pop();
+console.log(x.data);
+console.log(dll.head.data);*/
 //console.log(dll.len())
 
