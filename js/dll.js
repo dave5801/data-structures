@@ -75,7 +75,38 @@ class DLL{
             console.log("Empty List");
         }
     }
-    remove(val){}
+    remove(val){
+        var current = this.head;
+        if(current){
+             while(current.next){
+                if(current.data == val){
+
+                    if(current == this.head){
+                        this.head = current.next;
+                        this.head.prev = null;
+                        this.size -= 1;
+                        return;
+                    }else if(current == this.tail){
+                        this.tail = current.prev;
+                        self.tail.next = null;
+                        this.size -= 1;
+                        return;
+                    }else{
+                        current.prev.next = current.next;
+                        current.next.prev = current.prev;
+                        this.size -= 1;
+                        return;
+                    }
+
+                }else{
+                    current = current.next;
+                }
+            }     
+            console.log("Value not in List");
+        }else{
+            console.log("Empty List");
+        }           
+    }
 }
 
 dll = new DLL();
@@ -84,7 +115,6 @@ dll.push(10)
 dll.push(5)
 dll.append(3)
 
-var x = dll.shift()
-console.log("shifted:" +x.data);
-console.log("size: " +dll.len())
+dll.remove(8);
+;
 
