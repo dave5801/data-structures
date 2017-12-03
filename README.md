@@ -24,3 +24,21 @@
     # post_order: sort by subtrees recursively back up to root, O(n)
 
     # breadth first: also known as level order, search by left and right nodes in descending order, O(n)
+
+
+
+# Javascript
+
+# Singly Linked List
+
+# push() - add new node to list, O(1)
+
+# pop() - remove head of list, O(1)
+
+# get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
+
+# search() - returns node which matches target value, O(n), must search through list elements.
+
+# remove() - remove target node, O(n) must search through list elements to find target.
+
+# display() - display list contents O(n), prints list contents in linear fashion.
