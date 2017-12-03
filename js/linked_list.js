@@ -46,8 +46,10 @@ class SinglyLinkedList{
 
         var current = this.head;
         this.head = current.next;
+        this.size -= 1;
         
-        return "Popped head of list: " +current.data;
+        //return "Popped head of list: " + current.data;
+        return current.data;
 
     }
 
@@ -76,9 +78,10 @@ class SinglyLinkedList{
 
     remove(node){
         //remove a node from the list
-        
+
         node.data = node.next.data;
         node.next = node.next.next;
+        this.size -= 1;
     }
 
     display(){
@@ -101,8 +104,9 @@ class SinglyLinkedList{
     }
 }
 
-//main
+//main - test area
 l = new SinglyLinkedList()
+
 l.push(5);
 l.push(3);
 l.push(2);
@@ -114,4 +118,5 @@ l.remove(l.head)
 console.log("the head: " +l.head.data)
 l.remove(l.head)
 console.log("the head: " +l.head.data)
+console.log(l.get_size())
 
