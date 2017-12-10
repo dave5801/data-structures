@@ -20,8 +20,22 @@ class Sortings(object):
                     self.sort_list[j] = self.sort_list[j + 1]
                     self.sort_list[j + 1] = temp
 
+    def insert_sort(self):
+        """Insertion sort."""
+        for i in range(len(self.sort_list)):
+
+            k = self.sort_list[i]
+
+            j = i
+
+            while j > 0 and k < self.sort_list[j-1]:
+                self.sort_list[j] = self.sort_list[j-1]
+                j -= 1
+
+            self.sort_list[j] = k
+
 
 if __name__ == '__main__':
-    s = Sortings([5, 4, 3, 2, 1])
-    tl = s.bubble_sort()
+    s = Sortings([10, 5, 4, 8, 12, 1])
+    tl = s.insert_sort()
     print(s.sort_list)
