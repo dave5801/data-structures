@@ -20,9 +20,8 @@ class Sortings(object):
                     self.sort_list[j] = self.sort_list[j + 1]
                     self.sort_list[j + 1] = temp
 
-
     def insert_sort(self):
-
+        """Insertion sort."""
         for i in range(len(self.sort_list)):
 
             k = self.sort_list[i]
