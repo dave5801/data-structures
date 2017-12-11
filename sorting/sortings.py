@@ -35,7 +35,33 @@ class Sortings(object):
             self.sort_list[j] = k
 
 
+    def quick_sort(self, arr):
+
+        if len(arr) <= 1:
+            return arr
+
+        pivot = arr[0]
+        left = []
+        right = []
+
+        for i in arr[1:]:
+
+            if i < pivot:
+                left.append(i)
+
+            elif i > pivot:
+                right.append(i)
+
+        left = self.quick_sort(left)
+        right = self.quick_sort(right)
+
+        return left + [pivot] + right
+
+
 if __name__ == '__main__':
-    s = Sortings([10, 5, 4, 8, 12, 1])
-    tl = s.insert_sort()
-    print(s.sort_list)
+    s = Sortings([])
+    arr = [10,7,2,6,12]
+    t = s.quick_sort(arr)
+    print(t)
+    #tl = s.insert_sort()
+    #print(s.sort_list)
