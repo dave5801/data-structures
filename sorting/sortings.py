@@ -34,9 +34,35 @@ class Sortings(object):
 
             self.sort_list[j] = k
 
+    def merge_sort(self, arr):
+        """Merge Sort."""
+
+        if len(arr) ==1:
+            return arr
+
+        mid = len(arr)//2
+        left = arr[mid:]
+        right = arr[:mid]
+
+        left = merge_sort(left)
+        right = merge_sort(right)
+
+        output = []
+
+        while left and right:
+            if right[0] < left[0]:
+                output.append(right[0])
+                right.pop()
+            elif left[0] < right[0]:
+                output.append(left[0])
+                left.pop()
+
+        return output + left + right
+
+
 
     def quick_sort(self, arr):
-
+        """Quick sort."""
         if len(arr) <= 1:
             return arr
 
