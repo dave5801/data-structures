@@ -37,25 +37,25 @@ class Sortings(object):
     def merge_sort(self, arr):
         """Merge Sort."""
 
-        if len(arr) ==1:
+        if len(arr) <=1:
             return arr
 
         mid = len(arr)//2
         left = arr[mid:]
         right = arr[:mid]
 
-        left = merge_sort(left)
-        right = merge_sort(right)
+        left = self.merge_sort(left)
+        right = self.merge_sort(right)
 
         output = []
 
         while left and right:
             if right[0] < left[0]:
                 output.append(right[0])
-                right.pop()
+                right.pop(0)
             elif left[0] < right[0]:
                 output.append(left[0])
-                left.pop()
+                left.pop(0)
 
         return output + left + right
 
@@ -87,7 +87,7 @@ class Sortings(object):
 if __name__ == '__main__':
     s = Sortings([])
     arr = [10,7,2,6,12]
-    t = s.quick_sort(arr)
+    t = s.merge_sort(arr)
     print(t)
     #tl = s.insert_sort()
     #print(s.sort_list)
