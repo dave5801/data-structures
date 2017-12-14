@@ -1,3 +1,6 @@
+"""Bubble sort implementation."""
+
+
 def bubble_sort(lst=[]):
     """Bubble sort."""
     for i in range(len(lst) - 1):

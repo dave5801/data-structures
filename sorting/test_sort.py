@@ -34,41 +34,41 @@ def test_simple_list_bubble_sort():
 def test_sort_random_list():
     """Test random list of integers."""
     from bubble_sort import bubble_sort
-    x = [randint(0,9) for p in range(0, 9)]
+    x = [randint(0, 9) for p in range(0, 9)]
     s = bubble_sort(x)
     x.sort()
     assert s == x
 
 
-'''
-
-
-
-
 def test_insert_sort_empty_list():
-    """Insert sort on empty list."""
-    from sortings import Sortings
-    s = Sortings([])
-    s.insert_sort()
-    assert s.sort_list == []
+    """Test Insert sort on empty list."""
+    from insert_sort import insert_sort
+    s = insert_sort()
+    assert s == []
 
 
 def test_list_one_element_insert_sort():
     """Test insert sort on one element."""
-    from sortings import Sortings
-    s = Sortings([1])
-    s.insert_sort()
-    assert s.sort_list == [1]
+    from insert_sort import insert_sort
+    s = insert_sort([1])
+    assert s == [1]
 
 
 def test_simple_list_insert_sort():
     """Test insert sort on basic list."""
-    from sortings import Sortings
-    s = Sortings([5, 4, 3, 2, 1])
-    s.insert_sort()
-    assert s.sort_list == [1, 2, 3, 4, 5]
+    from insert_sort import insert_sort
+    s = insert_sort([5, 4, 3, 2, 1])
+    assert s == [1, 2, 3, 4, 5]
 
 
+def test_insert_sort_random_list():
+    """Test insert sort on random list of integers."""
+    from insert_sort import insert_sort
+    x = [randint(0, 9) for p in range(0, 9)]
+    s = insert_sort(x)
+    x.sort()
+    assert s == x
+'''
 def test_insert_sort_random_list():
     """Test random list of integers."""
     from sortings import Sortings
