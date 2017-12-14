@@ -1,6 +1,9 @@
 """Class for sorting algorithms."""
 
 
+
+
+'''
 class Sortings(object):
     """A general class for sorting algorithms."""
 
@@ -83,11 +86,18 @@ class Sortings(object):
 
         return left + [pivot] + right
 
+    def radix_sort(self, arr):
+
+        x = len(str(max(arr)))
+        str_list = ['%0*d' % (x, i) for i in arr]
+        print(str_list)
+'''
+
 
 if __name__ == '__main__':
     s = Sortings([])
-    arr = [10,7,2,6,12]
-    t = s.merge_sort(arr)
+    arr = [5, 102, 48, 10, 2, 500]
+    t = s.radix_sort(arr)
     print(t)
     #tl = s.insert_sort()
     #print(s.sort_list)
