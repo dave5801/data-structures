@@ -103,47 +103,25 @@ def test_merge_sort_rand_list():
     assert k == x
 
 
-'''
-
-
-
-
 def test_quick_sort_empty_list():
-    """Quick sort on empty list."""
-    from sortings import Sortings
-    s = Sortings()
-    x = s.quick_sort([])
+    """Test Quick sort on empty list."""
+    from quicksort import quick_sort
+    x = quick_sort([])
     assert x == []
 
 
 def test_quick_sort_list_len_one():
-    """Quick sort on one element list."""
-    from sortings import Sortings
-    s = Sortings()
-    x = s.quick_sort([1])
+    """Test Quick sort on one element list."""
+    from quicksort import quick_sort
+    x = quick_sort([1])
     assert len(x) == 1
-
-
-def test_quick_sort_simple_list():
-    """Quick sort on basic list."""
-    from sortings import Sortings
-    s = Sortings()
-    x = [10, 5, 7, 2, 12]
-    k = s.quick_sort(x)
-    x.sort()
-    assert k == x
 
 
 def test_quick_sort_rand_list():
     """test quick sort on random list."""
-    from sortings import Sortings
+    from quicksort import quick_sort
     import random
-    s = Sortings()
     x = random.sample(range(100), 10)
-    k = s.quick_sort(x)
+    k = quick_sort(x)
     x.sort()
     assert k == x
-
-
-
-'''
