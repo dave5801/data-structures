@@ -184,12 +184,33 @@ class Tree(object):
         if self.root is None:
             return None
         else:
-            self.delete(val, self.root)
+            self.root = self.delete(val, self.root)
     
     def delete(self, val, node):
         if node.data == val:
-            print("Found node for deletion")
+            if node.left and node.right:
+                #get left node
+                successor = self.get_min(node)
+
+                #swap parent and left child
+                parent = node
+                node = successor
+
+                #reassign right child
+                node.right = parent.right
+                
+
             return
+        else:
+            return
+
+    def get_min(self, node):
+        """get min node from sub tree."""
+        if node.left:
+            return node.left
+        else:
+            return node.right
+
         
 
         '''
@@ -219,20 +240,22 @@ class Tree(object):
         
      
 
-    def get_min_node(self, node):
-        """get min node from sub tree."""
-        if node.left:
-            return node.left
-        else:
-            return node.right
+
 
 if __name__ == '__main__':
 
    # t = Tree([10, 7, 12, 5, 9, 11, 13])
    # t = Tree([5,3,1,6])
-    t = Tree([])
+    t = Tree([10, 7, 12])
+
+    print("current root", t.root.data)
 
     t.delete_node(10)
+
+    if not t.root:
+        print("no root")
+    else:
+        print("current root", t.root.data)
    # print(t.root.right)
    # t.delete_node(t.root)
    # print(t.root.data)
