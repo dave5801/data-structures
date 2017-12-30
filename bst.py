@@ -198,10 +198,17 @@ class Tree(object):
 
                 #reassign right child
                 node.right = parent.right
+
+            elif node.left and not node.right:
+                print("one left child")
+
+            elif node.right and not node.left:
+                print("one right child")
                 
 
             return
         else:
+            
             return
 
     def get_min(self, node):
@@ -246,7 +253,7 @@ if __name__ == '__main__':
 
    # t = Tree([10, 7, 12, 5, 9, 11, 13])
    # t = Tree([5,3,1,6])
-    t = Tree([10, 7, 12])
+    t = Tree([10, 7])
 
     print("current root", t.root.data)
 
