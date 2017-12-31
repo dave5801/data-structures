@@ -184,9 +184,19 @@ class Tree(object):
         if self.root is None:
             return None
         else:
-            self.root = self.delete(val, self.root)
+            if self.root.data == val:
+                self.root = self.delete(val, self.root)
+            else:
+                self.delete(val, self.root)
+            return
     
     def delete(self, val, node):
+
+        print("called:", node.data)
+
+        if node is None:
+            return
+
         if node.data == val:
             if node.left and node.right:
                 #get left node
@@ -198,20 +208,28 @@ class Tree(object):
 
                 #reassign right child
                 node.right = parent.right
+                #print("successor node", successor.data)
+                return successor
 
             elif node.left and not node.right:
                 print("one left child")
                 return node.left
 
             elif node.right and not node.left:
-                print("one right child")
+               # print("one right child")
                 return node.right
-                
-
-            return
+            else:
+                print("no children")
+                return
         else:
-            
-            return
+            if val < node.data:
+                print("traverse left")
+                node.left = self.delete(val, node.left)
+            elif val > node.data:
+                print("traverse right")
+                print(node.right.data)
+                node.right = self.delete(val, node.right)
+          
 
     def get_min(self, node):
         """get min node from sub tree."""
@@ -255,16 +273,20 @@ if __name__ == '__main__':
 
    # t = Tree([10, 7, 12, 5, 9, 11, 13])
    # t = Tree([5,3,1,6])
-    t = Tree([10, 12])
+    t = Tree([10,7,12])
 
     print("current root", t.root.data)
 
-    t.delete_node(10)
+    t.delete_node(7)
 
     if not t.root:
         print("no root")
     else:
         print("current root", t.root.data)
+       # print("left child", t.root.left.data)
+        print("right child", t.root.right.data)
+
+   # print(t.root.left.data)
    # print(t.root.right)
    # t.delete_node(t.root)
    # print(t.root.data)
