@@ -201,9 +201,11 @@ class Tree(object):
 
             elif node.left and not node.right:
                 print("one left child")
+                return node.left
 
             elif node.right and not node.left:
                 print("one right child")
+                return node.right
                 
 
             return
@@ -253,7 +255,7 @@ if __name__ == '__main__':
 
    # t = Tree([10, 7, 12, 5, 9, 11, 13])
    # t = Tree([5,3,1,6])
-    t = Tree([10, 7])
+    t = Tree([10, 12])
 
     print("current root", t.root.data)
 
