@@ -24,3 +24,7 @@
     # post_order: sort by subtrees recursively back up to root, O(n)
 
     # breadth first: also known as level order, search by left and right nodes in descending order, O(n)
+
+    # delete_node: checks if the root is none, or the root is to be deleted, else pass to delete helper
+
+    # delete: proper node deletion from BST, O(log n) relative to the height of the tree, assumming its balanced
