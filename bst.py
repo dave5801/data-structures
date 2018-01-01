@@ -18,7 +18,6 @@ class Tree(object):
 
     def __init__(self, iterable=None):
         """Constructor."""
-
         self.root = None
         self.nodes = []
 
@@ -42,7 +41,7 @@ class Tree(object):
 
     def insert(self, val):
         """Insert New Node."""
-        if self.contains(val) == True:
+        if self.contains(val) is True:
             """Ignore if already present."""
             return
 
@@ -121,7 +120,7 @@ class Tree(object):
         elif node.right and not node.left:
             return self.get_depth(node.right) + 1
         else:
-            return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
+            return max(self.get_depth(node.left), self.get_depth(node.right)) +1
 
     def in_order(self, node=None):
         """Search in ascending order."""
@@ -190,7 +189,7 @@ class Tree(object):
             else:
                 self.delete(val, self.root)
             return
-    
+
     def delete(self, val, node):
 
         print("called:", node.data)
@@ -209,31 +208,20 @@ class Tree(object):
 
                 #reassign right child
                 node.right = parent.right
-                #print("successor node", successor.data)
                 return successor
 
             elif node.left and not node.right:
-                print("one left child")
                 return node.left
 
             elif node.right and not node.left:
-               # print("one right child")
                 return node.right
             else:
-                print("no children")
                 return
         else:
             if val < node.data:
-                print("traverse left")
-                if node.left:
-                    print("")
-
                 node.left = self.delete(val, node.left)
             elif val > node.data:
-                print("traverse right")
-                print(node.right.data)
                 node.right = self.delete(val, node.right)
-          
 
     def get_min(self, node):
         """get min node from sub tree."""
@@ -242,13 +230,11 @@ class Tree(object):
         else:
             return node.right
 
-        
+
 if __name__ == '__main__':
+    """Operation of Delete method."""
 
-    t = Tree([10,7,12,15,5])
-
-
-    print("current root", t.root.data)
+    t = Tree([10, 7, 12, 15, 5])
 
     t.delete_node(7)
 

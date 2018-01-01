@@ -214,21 +214,49 @@ def test_breadth_first_traversal():
         assert i == [10, 7, 12, 5, 9, 11, 13]
 
 
-def test_delete_node_returns_empty_node():
-    """Test empty node removed is None."""
+def test_delete_root():
+    """Test remove root."""
     from bst import Tree
-    test_list = []
-    test_tree = Tree(test_list)
-    test_tree.delete_node(test_tree.root)
-
+    test_tree = Tree([10])
+    test_tree.delete_node(10)
     assert test_tree.root is None
 
 
-def test_deletion_removes_root():
-    """Test delete removes node as expected."""
+def test_delete_left_child():
+    """Test remove left child."""
     from bst import Tree
-    test_list = [10, 7, 5, 9, 12, 11, 13]
-    test_tree = Tree(test_list)
+    test_tree = Tree([10, 7])
+    test_tree.delete_node(7)
+    assert test_tree.root.left is None
 
-    test_tree.delete_node(test_tree.root)
-    assert test_tree.root.data == test_list[1]
+
+def test_delete_right_child():
+    """Test remove left child."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12])
+    test_tree.delete_node(12)
+    assert test_tree.root.right is None
+
+
+def test_remove_right_child_larger_list():
+    """Test remove right child from a larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(12)
+    assert test_tree.root.right.data == 15
+
+
+def test_remove_left_child_larger_list():
+    """Test remove right child from a larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(7)
+    assert test_tree.root.left.data == 5
+
+
+def test_remove_root_larger_list():
+    """Test remove root from larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(10)
+    assert test_tree.root.data == 7
