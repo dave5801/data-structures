@@ -37,3 +37,22 @@
     # For every element popped from stack, use counter to check if balanced
     # if element equals '(' add 1, if ')' subtract one
     # use the count to validate if parenthesis is valid
+
+
+
+# Javascript
+
+    # Singly Linked List
+
+    # push() - add new node to list, O(1)
+
+    # pop() - remove head of list, O(1)
+
+    # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
+
+    # search() - returns node which matches target value, O(n), must search through list elements.
+
+# remove() - remove target node; resetting pointers, O(1) 
+
+# display() - display list contents O(n), prints list contents in linear fashion.
+
