@@ -28,3 +28,22 @@
     # delete_node: checks if the root is none, or the root is to be deleted, else pass to delete helper
 
     # delete: proper node deletion from BST, O(log n) relative to the height of the tree, assumming its balanced
+
+
+
+# Javascript
+
+    # Singly Linked List
+
+    # push() - add new node to list, O(1)
+
+    # pop() - remove head of list, O(1)
+
+    # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
+
+    # search() - returns node which matches target value, O(n), must search through list elements.
+
+    # remove() - remove target node; resetting pointers, O(1) 
+
+    # display() - display list contents O(n), prints list contents in linear fashion.
+
