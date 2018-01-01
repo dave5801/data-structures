@@ -18,6 +18,7 @@ class Tree(object):
 
     def __init__(self, iterable=None):
         """Constructor."""
+
         self.root = None
         self.nodes = []
 
@@ -194,7 +195,7 @@ class Tree(object):
 
         print("called:", node.data)
 
-        if node is None:
+        if not node:
             return
 
         if node.data == val:
@@ -224,6 +225,9 @@ class Tree(object):
         else:
             if val < node.data:
                 print("traverse left")
+                if node.left:
+                    print("")
+
                 node.left = self.delete(val, node.left)
             elif val > node.data:
                 print("traverse right")
@@ -239,41 +243,10 @@ class Tree(object):
             return node.right
 
         
-
-        '''
-    def delete_node(self, node):
-        """delete node from tree."""
-        if self.root is None:
-            return
-        elif node == self.root:
-
-            if self.root.right is None:
-                print("trying to get left child")
-                self.root = self.root.left
-                self.left = None
-
-            self.root = self.get_min_node(node)'''
-
-        '''
-             
-        if node.data < self.root.data:
-            print("Traverse here",self.root.left.data)
-            self.root.left = self.delete_node(self.root)
-           
-        elif node.data > self.root.data:
-            print("Traverse here",self.root.right.data)
-       '''
-
-        
-     
-
-
-
 if __name__ == '__main__':
 
-   # t = Tree([10, 7, 12, 5, 9, 11, 13])
-   # t = Tree([5,3,1,6])
-    t = Tree([10,7,12])
+    t = Tree([10,7,12,15,5])
+
 
     print("current root", t.root.data)
 
@@ -283,15 +256,5 @@ if __name__ == '__main__':
         print("no root")
     else:
         print("current root", t.root.data)
-       # print("left child", t.root.left.data)
+        print("left child", t.root.left.data)
         print("right child", t.root.right.data)
-
-   # print(t.root.left.data)
-   # print(t.root.right)
-   # t.delete_node(t.root)
-   # print(t.root.data)
-   # print(t.root.left)
-
-
-
-
