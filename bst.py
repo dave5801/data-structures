@@ -41,7 +41,7 @@ class Tree(object):
 
     def insert(self, val):
         """Insert New Node."""
-        if self.contains(val) == True:
+        if self.contains(val) is True:
             """Ignore if already present."""
             return
 
@@ -120,7 +120,7 @@ class Tree(object):
         elif node.right and not node.left:
             return self.get_depth(node.right) + 1
         else:
-            return max(self.get_depth(node.left), self.get_depth(node.right)) + 1
+            return max(self.get_depth(node.left), self.get_depth(node.right)) +1
 
     def in_order(self, node=None):
         """Search in ascending order."""
@@ -189,12 +189,12 @@ class Tree(object):
             else:
                 self.delete(val, self.root)
             return
-    
+
     def delete(self, val, node):
 
         print("called:", node.data)
 
-        if node is None:
+        if not node:
             return
 
         if node.data == val:
@@ -208,28 +208,20 @@ class Tree(object):
 
                 #reassign right child
                 node.right = parent.right
-                #print("successor node", successor.data)
                 return successor
 
             elif node.left and not node.right:
-                print("one left child")
                 return node.left
 
             elif node.right and not node.left:
-               # print("one right child")
                 return node.right
             else:
-                print("no children")
                 return
         else:
             if val < node.data:
-                print("traverse left")
                 node.left = self.delete(val, node.left)
             elif val > node.data:
-                print("traverse right")
-                print(node.right.data)
                 node.right = self.delete(val, node.right)
-          
 
     def get_min(self, node):
         """get min node from sub tree."""
@@ -238,44 +230,11 @@ class Tree(object):
         else:
             return node.right
 
-        
-
-        '''
-    def delete_node(self, node):
-        """delete node from tree."""
-        if self.root is None:
-            return
-        elif node == self.root:
-
-            if self.root.right is None:
-                print("trying to get left child")
-                self.root = self.root.left
-                self.left = None
-
-            self.root = self.get_min_node(node)'''
-
-        '''
-             
-        if node.data < self.root.data:
-            print("Traverse here",self.root.left.data)
-            self.root.left = self.delete_node(self.root)
-           
-        elif node.data > self.root.data:
-            print("Traverse here",self.root.right.data)
-       '''
-
-        
-     
-
-
 
 if __name__ == '__main__':
+    """Operation of Delete method."""
 
-   # t = Tree([10, 7, 12, 5, 9, 11, 13])
-   # t = Tree([5,3,1,6])
-    t = Tree([10,7,12])
-
-    print("current root", t.root.data)
+    t = Tree([10, 7, 12, 15, 5])
 
     t.delete_node(7)
 
@@ -283,15 +242,5 @@ if __name__ == '__main__':
         print("no root")
     else:
         print("current root", t.root.data)
-       # print("left child", t.root.left.data)
+        print("left child", t.root.left.data)
         print("right child", t.root.right.data)
-
-   # print(t.root.left.data)
-   # print(t.root.right)
-   # t.delete_node(t.root)
-   # print(t.root.data)
-   # print(t.root.left)
-
-
-
-
