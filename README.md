@@ -29,6 +29,7 @@
 
     # delete: proper node deletion from BST, O(log n) relative to the height of the tree, assumming its balanced
 
+
 # extra-credit
 
 # Valid Parenthesis - https://www.codewars.com/kata/valid-parentheses/train/python
@@ -52,7 +53,13 @@
 
     # search() - returns node which matches target value, O(n), must search through list elements.
 
+
+    # remove() - remove target node; resetting pointers, O(1) 
+
+    # display() - display list contents O(n), prints list contents in linear fashion.
+
 # remove() - remove target node; resetting pointers, O(1) 
 
 # display() - display list contents O(n), prints list contents in linear fashion.
+
 
