@@ -28,3 +28,12 @@
     # delete_node: checks if the root is none, or the root is to be deleted, else pass to delete helper
 
     # delete: proper node deletion from BST, O(log n) relative to the height of the tree, assumming its balanced
+
+# extra-credit
+
+# Valid Parenthesis - https://www.codewars.com/kata/valid-parentheses/train/python
+
+    # Utilizes stack
+    # For every element popped from stack, use counter to check if balanced
+    # if element equals '(' add 1, if ')' subtract one
+    # use the count to validate if parenthesis is valid
