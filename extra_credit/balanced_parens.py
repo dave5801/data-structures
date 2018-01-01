@@ -26,7 +26,7 @@ def is_balanced(string):
 
     if count == 0:
         return 'balanced'
-    elif count == 1:
+    elif count >= 1:
         return 'open'
     else:
         return 'broken'
