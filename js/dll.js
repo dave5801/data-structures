@@ -10,10 +10,14 @@ class Node{
 
 class DLL{
 
-    constructor(){
+    constructor(iterable=[]){
         this.head = null;
         this.tail = null;
         this.size = 0;
+
+        for(var i = 0; i < iterable.length; i++){
+            this.push(iterable[i])
+        }
     }
 
     len(){
@@ -109,6 +113,7 @@ class DLL{
     }
 }
 
+/*
 dll = new DLL();
 
 dll.push(10)
@@ -116,5 +121,7 @@ dll.push(5)
 dll.append(3)
 
 dll.remove(8);
-;
+;*/
+
+module.exports = DLL;
 

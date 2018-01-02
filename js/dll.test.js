@@ -1,16 +1,16 @@
 /*Test class for linked list.*/
 
 /*requirements*/
-const SinglyLinkedList = require('./linked_list.js');
+const DLL = require('./dll.js');
 
-/*Tests*/
 
-test('create new singly  list', () => {
-    const l = new SinglyLinkedList();
-    expect(l);
+
+test('create new doubly list', () => {
+    const dll = new DLL();
+    expect(dll);
 });
 
-
+/*
 test('test push empty list', () =>{
     const l = new SinglyLinkedList();
     l.push(5);
@@ -70,4 +70,4 @@ test('test search for node which is not present in list',() => {
     const l = new SinglyLinkedList(tl);
     res = l.search(10)
     expect(res).toBe("not found")
-});
+});*/
