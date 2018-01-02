@@ -12,9 +12,14 @@ class Node{
 class SinglyLinkedList{
     //linked list class
 
-    constructor(head){
+    constructor(iterable=[]){
         this.head = null;
         this.size = 0;
+
+        for(var i = 0; i < iterable.length; i++){
+            this.push(iterable[i])
+        }
+
     }
 
     push(val){
@@ -121,4 +126,4 @@ l.remove(l.head)
 console.log("the head: " +l.head.data)
 console.log(l.get_size())*/
 
-module.exports.SinglyLinkedList;
+module.exports = SinglyLinkedList;
