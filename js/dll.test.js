@@ -10,64 +10,69 @@ test('create new doubly list', () => {
     expect(dll);
 });
 
-/*
+
 test('test push empty list', () =>{
-    const l = new SinglyLinkedList();
-    l.push(5);
-    expect(l.head.data).toBe(5)
+    const dll = new DLL();
+    dll.push(5);
+    expect(dll.head.data).toBe(5)
+    expect(dll.tail.data).toBe(5)
 });
 
-test('test push next', () => {
-    const l = new SinglyLinkedList();
-    l.push(5);
-    l.push(9);
-    expect(l.head.next.data).toBe(9)
+
+test('test push tail is next', () => {
+    const dll = new DLL();
+    dll.push(5);
+    dll.push(9);
+    expect(dll.head.next.data).toBe(dll.tail.data)
 
 });
 
-test('test list accecpt iterable', () => {
-    const l = new SinglyLinkedList([1,2,3,4,5]);
-    expect(l.head.data).toBe(1)
+
+test('test dll accecpt iterable', () => {
+    const dll = new DLL([1,2,3,4,5]);
+    expect(dll.head.data).toBe(5)
+    expect(dll.tail.data).toBe(1)
 });
+
 
 test('test push to list',() => {
-    const l = new SinglyLinkedList([1]);
-    l.push(10);
-    expect(l.head.data).toBe(1)
-    expect(l.head.next.data).toBe(10)
+    const dll = new DLL([1,2,3,4,5]);
+    dll.push(10);
+    expect(dll.head.data).toBe(10)
+    expect(dll.tail.data).toBe(1)
 });
 
-test('test list size',() => {
+
+test('test dll len',() => {
     tl = [1,2,3,4,5]
-    const l = new SinglyLinkedList(tl);
-    expect(l.size).toBe(tl.length);
+    const dll = new DLL(tl);
+    expect(dll.len()).toBe(tl.length);
 });
 
-test('test remove from list',() => {
+
+test('test remove from dll',() => {
     tl = [1,2,3,4,5]
-    const l = new SinglyLinkedList(tl);
-    l.remove(l.head)
-    expect(l.size).toBe(tl.length-1)
+    const dll = new DLL(tl);
+    dll.remove(dll.head)
+    expect(dll.len()).toBe(tl.length)
 });
+
 
 test('test pop from list',() => {
     tl = [1,2,3,4,5]
-    const l = new SinglyLinkedList(tl);
-    l.pop()
-    l.pop()
-    expect(l.head.data).toBe(3)
+    const dll = new DLL(tl);
+    dll.pop()
+    dll.pop()
+    expect(dll.len()).toBe(3)
+    expect(dll.head.data).toBe(3)
+    expect(dll.tail.data).toBe(1)
 });
 
-test('test search for node which is present in list',() => {
-    tl = [1,2,3,4,5]
-    const l = new SinglyLinkedList(tl);
-    res = l.search(5)
-    expect(res.data).toBe(5)
-});
 
-test('test search for node which is not present in list',() => {
-    tl = [1,2,3,4,5]
-    const l = new SinglyLinkedList(tl);
-    res = l.search(10)
-    expect(res).toBe("not found")
-});*/
+test('test shift from empty list',() => {
+    
+    const dll = new DLL([]);
+    var x = dll.shift()
+    expect(x).toBe("Empty List")
+    
+});
