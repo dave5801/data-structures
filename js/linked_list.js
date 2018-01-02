@@ -105,6 +105,7 @@ class SinglyLinkedList{
 }
 
 //main - test area
+/*
 l = new SinglyLinkedList()
 
 l.push(5);
@@ -118,5 +119,6 @@ l.remove(l.head)
 console.log("the head: " +l.head.data)
 l.remove(l.head)
 console.log("the head: " +l.head.data)
-console.log(l.get_size())
+console.log(l.get_size())*/
 
+module.exports.SinglyLinkedList;
