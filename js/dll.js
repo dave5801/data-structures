@@ -70,7 +70,7 @@ class DLL{
     }
 
     shift(){
-
+        /*returns and removes tail.*/
         if(this.head){
             var shifted = this.tail;
             this.tail = this.tail.prev;
@@ -81,6 +81,7 @@ class DLL{
         }
     }
     remove(val){
+        /*remove value from list*/
         var current = this.head;
         if(current){
              while(current.next){
