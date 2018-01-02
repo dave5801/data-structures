@@ -1,7 +1,7 @@
 """Insert Sort Implementation."""
 
 
-def insert_sort(lst=[]):
+def insert_sort(lst):
     """Insert sort."""
     for i in range(len(lst)):
 

@@ -17,11 +17,9 @@ def merge_sort(lst):
 
     while left and right:
         if right[0] < left[0]:
-            output.append(right[0])
-            right.pop(0)
+            output.append(right.pop(0))
         elif left[0] < right[0]:
-            output.append(left[0])
-            left.pop(0)
+            output.append(left.pop(0))
 
     return output + left + right
 
