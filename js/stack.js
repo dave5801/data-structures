@@ -1,8 +1,12 @@
 const SinglyLinkedList = require('./linked_list.js');
 
 class Stack{
-    constructor(){
+    constructor(iterable=[]){
         this.linked_list = new SinglyLinkedList();
+
+        for(var i = 0; i < iterable.length; i++){
+            this.push(iterable[i])
+        }
     }
     size(){
         return this.linked_list.get_size();
