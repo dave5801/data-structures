@@ -76,7 +76,10 @@ class SinglyLinkedList{
 
             current = current.next
         }
-
+        
+        if(current.data == val){
+            return current;
+        }
         return "not found";
 
     }
