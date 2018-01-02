@@ -70,9 +70,28 @@ test('test pop from list',() => {
 
 
 test('test shift from empty list',() => {
-    
     const dll = new DLL([]);
     var x = dll.shift()
-    expect(x).toBe("Empty List")
-    
+    expect(x).toBe("Empty List") 
+});
+
+test('test shift from dll',() => {
+    const dll = new DLL([1,2,3,4,5]);
+    var x = dll.shift()
+    expect(dll.tail.data).toBe(2) 
+});
+
+test('test append to empty dll',() => {
+    const dll = new DLL([]);
+    dll.append(1)
+    expect(dll.head.data).toBe(1)
+    expect(dll.tail.data).toBe(dll.head.data) 
+});
+
+
+test('test append to dll',() => {
+    const dll = new DLL([1,2,3,4,5]);
+    dll.append(10)
+    expect(dll.tail.data).toBe(10)
+    expect(dll.tail.prev.data).toBe(1) 
 });

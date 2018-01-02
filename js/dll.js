@@ -72,25 +72,13 @@ class DLL{
     shift(){
 
         if(this.head){
-            //console.log("not null")
             var shifted = this.tail;
             this.tail = this.tail.prev;
             this.size -= 1;
             return shifted;
         }else{
-           // console.log("list is null")
             return("Empty List")
         }
-
-        /*
-        try{
-            var shifted = this.tail;
-            this.tail = this.tail.prev;
-            this.size -= 1;
-            return shifted;
-        }catch(err){
-            console.log("Empty List");
-        }*/
     }
     remove(val){
         var current = this.head;
