@@ -31,13 +31,33 @@
 
     # Singly Linked List
 
-    # push() - add new node to list, O(1)
+        # push() - add new node to list, O(1)
 
-    # pop() - remove head of list, O(1)
+        # pop() - remove head of list, O(1)
 
-    # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
+        # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
 
-    # search() - returns node which matches target value, O(n), must search through list elements.
+        # search() - returns node which matches target value, O(n), must search through list elements.
+
+    #DLL - Doubly Linked List
+
+        #len() - returns size of list, O(1)
+
+        #push() - add new node to list, O(1)
+
+        #append() - add new node to end of list, O(1)
+
+        #pop() - remove head of list, O(1)
+
+        #shift() - returns and removes tail of list, O(1)
+
+        #remove() - search through and remove value from list, adjusting list contents, O(n)
+
+    #Stack
+
+        #Methods implemented using a Singly linked list, size(), push(), pop(), len()
+
+    #Testing - all testing is accomplished using Jest - https://facebook.github.io/jest/
 
 # remove() - remove target node; resetting pointers, O(1) 
 
