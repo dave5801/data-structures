@@ -10,15 +10,16 @@ test('test create new stack', () => {
     expect(s);
 });
 
-/*
+
 test('test size of stack empty', () => {
-    const s = new Stack();
-    expect(s);
+    const s = new Stack([]);
+    expect(s.size()).toBe(0);
 });
 
+/*
 test('test size of stack', () => {
-    const s = new Stack();
-    expect(s);
+    const s = new Stack([1,2,3,4,5]);
+    expect(s.size()).toBe(4);
 });
 
 test('test len of stack', () => {
