@@ -21,4 +21,7 @@ if __name__ == '__main__':
     import timeit
     setup = 'from insert_sort import insert_sort'
 
-    print(min(timeit.Timer('insert_sort([10, 5, 7, 8, 12])', setup=setup).repeat(7, 1000))) 
+    #a longer reverse ordered list seems to be the better time, largely because of how the insertions work
+    print("Betterer time", min(timeit.Timer('insert_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])', setup=setup).repeat(7, 1000))) 
+    print("Not so bad", min(timeit.Timer('insert_sort([1,2,3,4,5])', setup=setup).repeat(7, 1000))) 
+    print("Worser time", min(timeit.Timer('insert_sort([10, 5, 7, 8, 12])', setup=setup).repeat(7, 1000))) 
