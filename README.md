@@ -26,7 +26,6 @@
     # breadth first: also known as level order, search by left and right nodes in descending order, O(n)
 
 
-
 # Javascript
 
     # Singly Linked List
@@ -59,6 +58,18 @@
 
     #Testing - all testing is accomplished using Jest - https://facebook.github.io/jest/
 
-# remove() - remove target node; resetting pointers, O(1) 
+    # Deque
 
-# display() - display list contents O(n), prints list contents in linear fashion.
+        #size(): Measures the number of nodes in the deque, with a time complexity of O(n)
+
+        #pop(): removes and returns the tail node, with a time complexity of O(1)
+
+        #popleft(): removes and returns the head node, with a time complexity of O(1)
+
+        #append(): adds a new node to the tail of the list, with a time complexity of O(1)
+
+        #appendleft(): adds a new node to the head of the list, with a time complexity of O(1)
+
+        #peek(): returns the value of the tail of the list, with a time complexity of O(1)
+
+        #peekleft(): returns the value of the head of the the list, with a time complexity of O(1)
