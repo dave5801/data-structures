@@ -1,5 +1,10 @@
 import operator
 
+'''
+set buckets to keys of 1-10 - they remain fixed
+assign unique numbers to values of these buckes
+'''
+
 def radix_sort(lst):
 
     limit = len(str(max(lst)))
@@ -8,22 +13,29 @@ def radix_sort(lst):
     unsorted = {}
     sorted_nums = []
 
-    for i in range(len(buckets)):
-        tmp = get_digit(lst[i], 1)
-        buckets[i].append(tmp)
-        unsorted[lst[i]] = buckets[i]
+    n = 1
 
-    unsorted = sort_values(unsorted)
+    while n < limit:
+        for i in range(len(buckets)):
+            tmp = get_digit(lst[i], n)
+            buckets[i].append(tmp)
+            unsorted[lst[i]] = buckets[i]
 
-    for j in unsorted:
-        sorted_nums.append(j[0])
-    
-    print(sorted_nums)
+        unsorted = sort_values(unsorted)
+
+        for j in unsorted:
+            sorted_nums.append(j[0])
+        
+        print(sorted_nums)
+        n +=1
 
 
 
 
 def sort_values(unsorted):
+    print("unsorted", unsorted)
+    sort_vals = sorted(unsorted.items(), key=operator.itemgetter(1))
+    print ("sort vals", sort_vals)
     return sorted(unsorted.items(), key=operator.itemgetter(1))
 
 def get_digit(number, n):
@@ -31,5 +43,5 @@ def get_digit(number, n):
 
 
 if __name__ == '__main__':
-    lst = [25, 10, 7]
+    lst = [25, 10, 7, 30, 3, 6]
     radix_sort(lst)
