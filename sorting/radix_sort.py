@@ -1,3 +1,4 @@
+
 import operator
 
 '''
@@ -45,3 +46,17 @@ def get_digit(number, n):
 if __name__ == '__main__':
     lst = [25, 10, 7, 30, 3, 6]
     radix_sort(lst)
+
+ '''
+
+    def radix_sort(self, arr):
+
+        x = len(str(max(arr)))
+        str_list = ['%0*d' % (x, i) for i in arr]
+        print(str_list)
+
+
+        to be continued...
+
+        '''
+
