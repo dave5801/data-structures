@@ -68,15 +68,19 @@ class Deque{
 
         try{
             if((this.head) && (this.head == this.tail)){
-                popped_node = this.head
-                this.head = null
+                popped_node = this.head;
+                this.head = null;
             }else{
-                popped_node = this.tail
-                this.tail.prev_node.next_node = null
-                this.tail = this.tail.prev_node
+                popped_node = this.tail;
+                this.tail.prev_node.next_node = null;
+                this.tail = this.tail.prev_node;
             }
+
+            return popped_node.data
+            
         }catch(TypeError){
-            console.log("Cannot Pop from Empty List")
+            return "Cannot Pop from Empty List";
+           // console.log("Cannot Pop from Empty List")
         }
     }
 
@@ -86,15 +90,19 @@ class Deque{
 
         try{
             if((this.head) && (this.head == this.tail)){
-                popped_node = this.head
-                this.head = null
+                popped_node = this.head;
+                this.head = null;
             }else{
-                popped_node = this.head
-                this.head.next_node.prev_node = null
-                this.head = this.head.next_node
+                popped_node = this.head;
+                this.head.next_node.prev_node = null;
+                this.head = this.head.next_node;
             }
+
+            return popped_node.data
+
         }catch(TypeError){
-            console.log("Cannot Pop from Empty List")
+            return "Cannot Pop from Empty List";
+            //console.log("Cannot Pop from Empty List")
         }
 
     }
@@ -136,3 +144,6 @@ var x = dq.peek()
 var y = dq.peek_left()
 console.log(x + " " +y)
 console.log(dq.size());
+
+
+module.exports = Deque;
