@@ -100,10 +100,24 @@ class Deque{
     }
 
     peek(){
+        /*Return value from end of list without removing it.*/
+        if(this.head == null){
+            return null
+        }else{
+            return this.tail.data
+        }        
 
     }
 
-    peek_left(){}
+    peek_left(){
+        /*Return value from front of list without removing it.*/
+        if(this.head == null){
+            return null
+        }else{
+            return this.head.data
+        }       
+
+    }
     
 }
 
@@ -115,4 +129,10 @@ dq.pop_left()
 dq.pop_left()
 dq.pop_left()
 
+dq.append(10)
+dq.append_left(15)
+
+var x = dq.peek()
+var y = dq.peek_left()
+console.log(x + " " +y)
 console.log(dq.size());
