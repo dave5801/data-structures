@@ -40,7 +40,6 @@
     # use the count to validate if parenthesis is valid
 
 
-
 # Javascript
 
     # Singly Linked List
@@ -52,6 +51,10 @@
         # get_size() - returns size of list, O(1) - this.size keeps track of add/removes.
 
         # search() - returns node which matches target value, O(n), must search through list elements.
+        
+        # remove() - remove target node; resetting pointers, O(1) 
+
+        # display() - display list contents O(n), prints list contents in linear fashion.
 
     #DLL - Doubly Linked List
 
@@ -73,13 +76,18 @@
 
     #Testing - all testing is accomplished using Jest - https://facebook.github.io/jest/
 
+    # Deque
 
-    # remove() - remove target node; resetting pointers, O(1) 
+        #size(): Measures the number of nodes in the deque, with a time complexity of O(n)
 
-    # display() - display list contents O(n), prints list contents in linear fashion.
+        #pop(): removes and returns the tail node, with a time complexity of O(1)
 
-# remove() - remove target node; resetting pointers, O(1) 
+        #popleft(): removes and returns the head node, with a time complexity of O(1)
 
-# display() - display list contents O(n), prints list contents in linear fashion.
+        #append(): adds a new node to the tail of the list, with a time complexity of O(1)
 
+        #appendleft(): adds a new node to the head of the list, with a time complexity of O(1)
 
+        #peek(): returns the value of the tail of the list, with a time complexity of O(1)
+
+        #peekleft(): returns the value of the head of the the list, with a time complexity of O(1)
