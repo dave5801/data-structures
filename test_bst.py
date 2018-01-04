@@ -212,3 +212,51 @@ def test_breadth_first_traversal():
 
     for i in x:
         assert i == [10, 7, 12, 5, 9, 11, 13]
+
+
+def test_delete_root():
+    """Test remove root."""
+    from bst import Tree
+    test_tree = Tree([10])
+    test_tree.delete_node(10)
+    assert test_tree.root is None
+
+
+def test_delete_left_child():
+    """Test remove left child."""
+    from bst import Tree
+    test_tree = Tree([10, 7])
+    test_tree.delete_node(7)
+    assert test_tree.root.left is None
+
+
+def test_delete_right_child():
+    """Test remove left child."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12])
+    test_tree.delete_node(12)
+    assert test_tree.root.right is None
+
+
+def test_remove_right_child_larger_list():
+    """Test remove right child from a larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(12)
+    assert test_tree.root.right.data == 15
+
+
+def test_remove_left_child_larger_list():
+    """Test remove right child from a larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(7)
+    assert test_tree.root.left.data == 5
+
+
+def test_remove_root_larger_list():
+    """Test remove root from larger list."""
+    from bst import Tree
+    test_tree = Tree([10, 7, 12, 15, 5])
+    test_tree.delete_node(10)
+    assert test_tree.root.data == 7
