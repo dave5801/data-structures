@@ -19,7 +19,8 @@ class Trie(object):
             self.immediate_child_node_keys.append(string_to_insert[0])
 
             for letter in range(len(string_to_insert)):
-                print(string_to_insert[letter])
+                new_node = Node(string_to_insert[letter],string_to_insert[letter+1:len(string_to_insert)])
+                print(new_node.data, new_node.children)
 
 
 
