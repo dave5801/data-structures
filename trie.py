@@ -4,6 +4,9 @@ class Node(object):
         self.data = data
         self.children = children
 
+    def get_node_info(self):
+        return "Current Node: " +self.data + " Children: " + self.children
+
 
 class Trie(object):
 
@@ -16,11 +19,9 @@ class Trie(object):
         if string_to_insert in self.immediate_child_node_keys:
             print("already in the trie")
         else:
-            self.immediate_child_node_keys.append(string_to_insert[0])
-
             for letter in range(len(string_to_insert)):
                 new_node = Node(string_to_insert[letter],string_to_insert[letter+1:len(string_to_insert)])
-                print(new_node.data, new_node.children)
+                self.immediate_child_node_keys.append(new_node)
 
 
 
@@ -37,3 +38,7 @@ if __name__ == '__main__':
 
     trie = Trie()
     print(trie.insert_into_trie(x))
+
+    keys = trie.immediate_child_node_keys
+    for i in keys:
+        print(i.get_node_info())
