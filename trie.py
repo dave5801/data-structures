@@ -3,7 +3,8 @@ class Node(object):
     def __init__(self, data=None, children=None):
         self.dictionary_of_child_nodes = {}
         self.data = data
-        self.dictionary_of_child_nodes[data] = children
+        self.children = [children]
+        self.dictionary_of_child_nodes[data] = self.children
 
 
 class Trie(object):
@@ -13,14 +14,23 @@ class Trie(object):
         self.immediate_child_node_keys = []
 
     def insert_into_trie(self, string_to_insert):
-        print(string_to_insert[0])
-        print(self.immediate_child_node_keys)
+
+        for current_node in self.immediate_child_node_keys:
+            print("child nodes ",current_node.data, current_node.dictionary_of_child_nodes)
+
+
         if string_to_insert[0] in self.immediate_child_node_keys:
             print("already in the trie")
         else:
             for letter in range(len(string_to_insert)):
-                new_node = Node(string_to_insert[letter],string_to_insert[letter+1:len(string_to_insert)])
-                self.immediate_child_node_keys.append(new_node.data)
+                #string slice, then split to list, then add to dict
+                potential_children = string_to_insert[letter+1:len(string_to_insert)]
+                if potential_children:
+                    print("potential_children",potential_children[0])
+                    new_node = Node(string_to_insert[letter],potential_children[0])
+                else:
+                     new_node = Node(string_to_insert[letter])
+                self.immediate_child_node_keys.append(new_node)
 
 
 
