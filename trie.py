@@ -1,11 +1,9 @@
 class Node(object):
 
     def __init__(self, data=None, children=None):
-        self.node = {}
+        self.dictionary_of_child_nodes = {}
         self.data = data
-        self.children = children
-
-        self.node[data] = children 
+        self.dictionary_of_child_nodes[data] = children
 
 
 class Trie(object):
@@ -39,7 +37,7 @@ if __name__ == '__main__':
 
     print("Create New Node")
     node = Node("c", ["a", "t"])
-    print(node.node)
+    print(node.dictionary_of_child_nodes)
     print()
 
     trie = Trie()
