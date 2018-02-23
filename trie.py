@@ -1,11 +1,10 @@
 class Node(object):
 
     def __init__(self, data=None, children=None):
-        self.node = {}
+        self.dictionary_of_child_nodes = {}
         self.data = data
-        self.children = children
-
-        self.node[data] = children 
+        self.children = [children]
+        self.dictionary_of_child_nodes[data] = self.children
 
 
 class Trie(object):
@@ -15,14 +14,27 @@ class Trie(object):
         self.immediate_child_node_keys = []
 
     def insert_into_trie(self, string_to_insert):
-        print(string_to_insert[0])
-        print(self.immediate_child_node_keys)
-        if string_to_insert[0] in self.immediate_child_node_keys:
-            print("already in the trie")
+
+        count = 1
+
+        for current_node in self.immediate_child_node_keys:
+            children = current_node.dictionary_of_child_nodes[current_node.data]
+            print(children,  string_to_insert[count])
+            if string_to_insert[count] in children:
+                print("extend from here", string_to_insert[count])
+            count += 1
+
+
+
+        
         else:
-            for letter in range(len(string_to_insert)):
-                new_node = Node(string_to_insert[letter],string_to_insert[letter+1:len(string_to_insert)])
-                self.immediate_child_node_keys.append(new_node.data)
+            for letters in range(len(string_to_insert)):
+                potential_children = string_to_insert[letters+1:len(string_to_insert)]
+                if potential_children:
+                    new_node = Node(string_to_insert[letters],potential_children[0])
+                else:
+                     new_node = Node(string_to_insert[letters])
+                self.immediate_child_node_keys.append(new_node)
 
 
 
@@ -39,7 +51,7 @@ if __name__ == '__main__':
 
     print("Create New Node")
     node = Node("c", ["a", "t"])
-    print(node.node)
+    print(node.dictionary_of_child_nodes)
     print()
 
     trie = Trie()
