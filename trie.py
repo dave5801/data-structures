@@ -15,21 +15,25 @@ class Trie(object):
 
     def insert_into_trie(self, string_to_insert):
 
+        count = 1
+
         for current_node in self.immediate_child_node_keys:
-            print("child nodes ",current_node.data, current_node.dictionary_of_child_nodes)
+            children = current_node.dictionary_of_child_nodes[current_node.data]
+            print(children,  string_to_insert[count])
+            if string_to_insert[count] in children:
+                print("extend from here", string_to_insert[count])
+            count += 1
 
 
-        if string_to_insert[0] in self.immediate_child_node_keys:
-            print("already in the trie")
+
+        
         else:
-            for letter in range(len(string_to_insert)):
-                #string slice, then split to list, then add to dict
-                potential_children = string_to_insert[letter+1:len(string_to_insert)]
+            for letters in range(len(string_to_insert)):
+                potential_children = string_to_insert[letters+1:len(string_to_insert)]
                 if potential_children:
-                    print("potential_children",potential_children[0])
-                    new_node = Node(string_to_insert[letter],potential_children[0])
+                    new_node = Node(string_to_insert[letters],potential_children[0])
                 else:
-                     new_node = Node(string_to_insert[letter])
+                     new_node = Node(string_to_insert[letters])
                 self.immediate_child_node_keys.append(new_node)
 
 
